@@ -1,0 +1,94 @@
+.submenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 25px;
+    right: 25px;
+}
+
+.submenu a {
+    text-decoration: none;
+    background-color: black;
+    color: orange;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+.submenu a:hover {
+    background-color: orange;
+    color: black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+        margin: 50px 30px;
+}
+
+.grid .card {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border: solid 1px grey;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.grid .card:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.card .name {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.card-content.hide {
+    display: none;
+}
+
+.list-products {
+    margin-top: 10px;
+}
+
+
+.list-products h3 {
+    font-size: 16px;
+}
+
+.list-products ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.card-buttons button {
+    color: orange;
+    background-color: black;
+    padding: 4px;
+    border: none;
+    border-radius: 50px;
+}
+
+.card-buttons button:hover {
+    background-color: orange;
+    color: black;
+}

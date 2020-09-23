@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/submenu.css">
+        <link rel="stylesheet" href="/css/produtos.css">
+        <title>Produtos</title>
+    </head>
+    <body>
+        <header>
+            {{> top-menu}}
+        </header>
+
+        {{> submenu}}
+        <!--
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquise o produto">
+                <a href="#"></a>
+        </div>
+        -->
+
+    <div class="content-container">
+        <form action="add-product" method="POST">
+            <fieldset class="new-product hide">
+                <legend>Novo produto</legend>
+                <label for="name">Produto:</label>
+                <input type="text" placeholder="Informe o produto" name="name" required><br>
+                <label for="provider">Fornecedor:</label>
+                <input type="text" placeholder="Informe o fornecedor" name="provider"><br>
+                <label for="type">Tipo do produto:</label>
+                <select id="tipo" name="type">
+                    <option disabled="" selected>Selecione um tipo</option>
+                    {{#product_category}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/product_category}}
+                </select><br>
+                <label for="price">Valor:</label>
+                <input type="text" placeholder="R$ 0,00" name="price"><br>
+                
+                <div class="form-buttons">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset">Cancelar</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="search-results">
+            <div class="show-table">
+                <h1>Lista de produtos</h1>
+            </div>
+
+            <table class="hide">
+                <tr>
+                    <th>Id</th>
+                    <th>Produto</th>
+                    <th>Fornecedor</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                </tr>
+
+                {{#products}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{provider}}</td>
+                    <td>{{price}}</td>
+                    <td>{{pcName}}</td>
+                    <td class="buttons">
+                        <a href="edit-product/{{id}}">Editar</a>
+                        <a href="delete-product/{{id}}">Deletar</a>
+                    </td>
+                </tr>
+                {{/products}}
+            </table>
+        </div>
+
+        <script src="/scripts/produto.js"></script>
+
+    </body>
+</html>

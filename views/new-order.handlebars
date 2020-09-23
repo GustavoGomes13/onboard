@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova comanda</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <label for="client-name">Selecione o cliente:</label>
+            <select id="client-name" name="client-name">
+                <option selected disabled>Selecione um cliente</option>
+                {{#client}}
+                <option value="{{id}}">{{name}}</option>
+                {{/client}}
+            </select>
+        </fieldset>
+
+        <a href="#">Add Produto</a>
+
+        <fieldset class="hidden">
+            <label for="product-name">Selecione o produto:</label>
+            <!--
+            <select id="product-name" name="product-name">
+                <option selected disabled>Selecione um produto</option>
+                {{#product}}
+                <option value="{{id}}">{{name}}</option>
+                {{/product}}
+            </select>
+            
+            <input type="hidden" name="product-price" value="{{product.price}}">
+            <label for="product-qty">Quantidade:</label>
+            <input type="number" id="product-qty" name="product-qty">
+            <label for="products-price">Preço total:</label>
+
+            <input type="text" id="products-total-price" name="products-price" readonly>
+            -->
+
+            <table>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                </tr>
+                {{#product}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td id="price">{{price}}</td>
+                        <td><a href="#" id="addButton">Add</a></td>
+                    </tr>
+                {{/product}}
+            </table>
+
+        </fieldset>
+
+        <fieldset class="total-price">
+            <label for="total-price" id="totalLabel">Total:</label>
+            <input type="text" id="total-price" name="total-price" readonly>
+        </fieldset>
+    </form>
+
+
+    <script src="/scripts/new-order.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="/CSS/submenu.css">
+    <link rel="stylesheet" href="/css/clientes.css">
+    <title>Clientes</title>
+</head>
+<body>
+
+    <header>
+        {{> top-menu }}
+    </header>
+
+    {{> submenu}}
+
+    <div class="content-container">
+        <!--
+        <div class="search-bar">
+            <form>
+                <input id="consulta" type="text" name="consulta" value="{{buscaNome}}" placeholder="Pesquise o cliente">
+                <a id="btnConsulta" href="clientes/{{nome}}"></a>
+                <button type="submit" id="btnConsulta">P</button>
+            </form>
+        </div>
+        -->
+
+        <form action="controllerForm" method="POST">
+            <fieldset class="new-client hide">
+                <legend>Novo cliente</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Nome do cliente" required onkeypress="onlyLetters()"/><br>
+                <label for="cpf-client">CPF:</label>
+                <input type="text" name="cpf"  placeholder="000.000.000-00" required onkeypress="onlyNumbers()"/><br>
+                <label for="address">Endereço:</label>
+                <input type="text" name="endereco" placeholder="Endereço" required><br>
+                <label for="phone-client">Telefone:</label>
+                <input type="text" name="telefone" placeholder="(45) 9 9999-9999" required onkeypress="onlyNumbers()"/><br>
+
+                <div class="form-buttons">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset">Cancelar</button>
+                </div>
+            </fieldset>
+        </form>
+
+        
+        <div class="search-results">
+
+            <div class="show-table">
+                <h1>Lista de clientes</h1>
+            </div>
+          
+            <table class="hide">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Endereço</th>
+                    <th>Telefone</th>
+                    <th>Opções</th>
+                </tr>
+
+                {{#clients}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{cpf}}</td>
+                    <td>{{address}}</td>
+                    <td>{{phone_number}}</td>
+                    <td>
+                        <a href="edit-client/{{id}}">Editar</a>
+                        <a href="delete-client/{{id}}">Deletar</a>
+                    </td>
+                </tr>
+                {{/clients}}
+            </table>
+        </div>
+    </div>
+
+
+    <script src="/scripts/clientes.js"></script>
+
+</body>
+</html>

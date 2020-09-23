@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/CSS/comandas.css">
+    <title>Comandas</title>
+</head>
+<body>
+    <header>
+        {{> top-menu}}
+    </header> 
+
+    <div class="submenu">
+        <a href="/new-order">+</a>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="name">
+                <span>Gustavo Gomes</span> <!-- Colocar a ID -->
+            </div>
+
+            <div class="card-content hide">
+                <div class="list-products">
+                    <h3>Produtos:</h3>
+                    <ul>
+                        <li>Trento</li>
+                        <li>Booster</li>
+                    </ul>
+                </div> 
+
+                <div class="total">
+                    <h3>Total:</h3>
+                </div>
+
+                <div class="card-buttons">
+                    <button>Finalizar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/scripts/comandas.js"></script>
+
+</body>
+</html>

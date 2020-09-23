@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar produto</title>
+</head>
+<body>
+    <header>
+        {{> top-menu }}
+    </header>
+
+    <form action="/update-product" method="POST">
+            <fieldset class="edit-product">
+                <input type="text" value="{{product.id}}" name="id" readonly><br>
+                <label for="name">Produto:</label>
+                <input type="text" name="name" placeholder="Informe o produto" value="{{product.name}}" required><br>
+                <label for="provider">Fornecedor:</label>
+                <input type="text" name="provider" placeholder="Informe o fornecedor" value="{{product.provider}}" required><br>
+                <label for="type">Tipo do produto:</label>
+                <select id="tipo" name="type">
+                    <option disabled="" selected>Selecione um tipo</option>
+                    {{#product_category}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/product_category}}
+                </select><br>
+                <label for="price">Valor:</label>
+                <input type="text" name="price" placeholder="R$ 0,00" value="{{product.price}}" required><br>
+                
+                <div class="buttons">
+                    <button type="submit">Cadastrar</button>
+                    <a href="/produtos">Cancelar</a>
+                </div>
+            </fieldset>
+        </form>
+    
+</body>
+</html>
